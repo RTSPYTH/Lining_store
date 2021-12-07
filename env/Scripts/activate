@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\User\Desktop\Python\lining\lining_site\env"
+VIRTUAL_ENV="C:\Users\User\Desktop\Python\lining\linig_final\lining_site\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
