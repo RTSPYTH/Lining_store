@@ -1,10 +1,5 @@
 {% load static %}
 <!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>LINING KG</title>
@@ -13,69 +8,54 @@
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-
 							<!-- Header -->
 								<header id="header">
-
 									<h2><a href="{% url 'index' %}" class="logo"><strong>LINING KG</strong></a></h2>
-
-										<ul class="actions">
-												{% if user.is_authenticated %}
+									<ul class="actions">
+										{% if user.is_authenticated %}
 											<li><a href="{% url 'stock_create' %}" class="button big">Создать акцию</a></li>
 											<li><a href="{% url 'post_create' %}" class="button big">Добавить товар</a></li>
-												{% endif %}
-										</ul>
+										{% endif %}
+									</ul>
 									<ul class="icons">
-
-										<li>
-											<h2><a href="https://www.instagram.com/lining.admix.kg/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></h2></li>
+										<li><h2><a href="https://www.instagram.com/lining.admix.kg/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></h2></li>
 									</ul>
 								</header>
-
 							<!-- Banner -->
 								{% block content %}
-
 								<section id="banner">
 									{%if stock != None%}
-									<div class="content">
-										<header>
-
-											<h1>{{stock.title}}</h1>
-											<p>{{stock.sub_title}}</p>
-											<p>{{stock.created_date}}</p>
-										</header>
-										<ul class="actions">
-											<li><a href="{% url 'stock_detail' pk=stock.pk %}" class="button big">Читать далее</a></li>
-										</ul>
-									</div>
-									<span class="image">
-										<a href="{% url 'stock_detail' pk=stock.pk %}"><img src="{{stock.image.url}}" alt="" ></a>
-									</span>
+										<div class="content">
+											<header>
+												<h1>{{stock.title}}</h1>
+												<p>{{stock.sub_title}}</p>
+												<p>{{stock.created_date}}</p>
+											</header>
+											<ul class="actions">
+												<li><a href="{% url 'stock_detail' pk=stock.pk %}" class="button big">Читать далее</a></li>
+											</ul>
+										</div>
+										<span class="image object">
+											<a href="{% url 'stock_detail' pk=stock.pk %}"><img src="{{stock.image.url}}" alt="" ></a>
+										</span>
 									{%else%}
-									<div class="content">
-										<header>
-
-											<h1>Пока предстоящих акции нет</h1>
-											<p>Скоро будут акции, ожидайте</p>
-										</header>
-										<p>Li-Ning — китайская компания по производству спортивной одежды и спортивного оборудования, основанная бывшим гимнастом Ли Нином. Компания поддерживает ряд спортсменов и команд по всему миру.</p>
-
-									</div>
-									<span class="image">
-										<img src="{% static 'images/pic12.jpg' %}" alt="" width="488" height="412">
-									</span>
+										<div class="content">
+											<header>
+												<h1>Пока предстоящих акции нет</h1>
+												<p>Скоро будут акции, ожидайте</p>
+											</header>
+											<p>Li-Ning — китайская компания по производству спортивной одежды и спортивного оборудования, основанная бывшим гимнастом Ли Нином. Компания поддерживает ряд спортсменов и команд по всему миру.</p>
+										</div>
+										<span class="image">
+											<img src="{% static 'images/pic12.jpg' %}" alt="" width="488" height="412">
+										</span>
 									{% endif %}
 								</section>
-							<!-- Section -->
-
-
 							<!-- Section -->
 								<section>
 									<header class="major">
@@ -83,37 +63,32 @@
 									</header>
 									<div class="posts">
 										{% for post in posts %}
-										<article class="style{{posts.id}}">
-											<a href="{% url 'post_detail' pk=post.pk %}" class="image"><img src="{{post.image.url}}" alt="" width="444" height="444"></a>
-											<h3>{{post.name}}</h3>
-											{%for cate in post.categories.all%}
-											<p>{{cate}}</p>
-											{%endfor%}
-											<h3>{{post.price}} сом</h3>
-											<ul class="actions">
-												<li><a href="{% url 'post_detail' pk=post.pk %}" class="button">Посмотреть</a></li>
-											</ul>
-										</article>
+											<article class="style{{posts.id}}">
+												<a href="{% url 'post_detail' pk=post.pk %}" class="image"><img src="{{post.image.url}}" alt="" width="444" height="444"></a>
+												<h3>{{post.name}}</h3>
+												{%for cate in post.categories.all%}
+													<p>{{cate}}</p>
+												{%endfor%}
+												<p>Наличие: {{post.availability}}</p>
+												<h3>{{post.price}} сом</h3>
+												<ul class="actions">
+													<li><a href="{% url 'post_detail' pk=post.pk %}" class="button">Посмотреть</a></li>
+												</ul>
+											</article>
 										{% endfor %}
-
 									</div>
 								</section>
 							{% endblock %}
 						</div>
 					</div>
-
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
-
 							{% if user.is_authenticated %}
 								Здраствуйте, {{ user.username }}!
-
 							{% else %}
 								<p>Вы не зарегистрированы<br> <a href="{% url 'login' %}">Войти</a></p>
-
 							{% endif %}
-
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -121,17 +96,14 @@
 									</header>
 									<ul>
 										<li><a href="{% url 'index' %}">Главная страница</a></li>
-
 										<li>
 											<span class="opener">Мужское</span>
 											<ul>
 												<li><a href="{% url 'man_boots' %}">Кроссовки</a></li>
 												<li><a href="{% url 'man_clothes' %}">Одежда</a></li>
 												<li><a href="{% url 'man_accessories' %}">Аксессуары</a></li>
-
 											</ul>
 										</li>
-
 										<li>
 											<span class="opener">Женское</span>
 											<ul>
@@ -142,44 +114,36 @@
 										</li>
 										<li><a href="{% url 'stocks' %}">Акции</a></li>
 										<li><a href="{% url 'company' %}">О компании</a></li>
-
 									</ul>
 								</nav>
-
 							<!-- Section -->
 							<section>
-									<header class="major">
-										<h2>Контакты и Адреса</h2>
-									</header>
-									<p>Доставка внутри города Бишкек бесплатно </p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="https://mail.google.com/">lining_kg@gmail.com</a></li>
-										<li class="icon solid fa-envelope"><a href="https://mail.ru/">lining_kg@mail.ru</a></li>
-										<li class="icon solid fa-phone">0(999) 999-999</li>
-										<li class="icon solid fa-phone">0(558) 999-999</li>
-										<li class="icon solid fa-phone">0(770) 999-999</li>
-										<li class="icon solid fa-home">5 мкр. по К.Маркса<br>
-										ГУМ, 2 этаж<br> Дордой плаза, 2 этаж <br> Бишкек парк, 2 этаж </li>
-									</ul>
+								<header class="major">
+									<h2>Контакты и Адреса</h2>
+								</header>
+								<p>Доставка внутри города Бишкек бесплатно </p>
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><a href="https://mail.google.com/">lining_kg@gmail.com</a></li>
+									<li class="icon solid fa-envelope"><a href="https://mail.ru/">lining_kg@mail.ru</a></li>
+									<li class="icon solid fa-phone">0(999) 999-999</li>
+									<li class="icon solid fa-phone">0(558) 999-999</li>
+									<li class="icon solid fa-phone">0(770) 999-999</li>
+									<li class="icon solid fa-home">5 мкр. по К.Маркса<br>
+									ГУМ, 2 этаж<br> Дордой плаза, 2 этаж <br> Бишкек парк, 2 этаж </li>
+								</ul>
 							</section>
-
-
 							<!-- Footer -->
 								<footer id="footer">
 									<p class="copyright">&copy; Разработчики: <a href="https://www.instagram.com/erl_jk/">Эрбол</a>. <a href="https://www.instagram.com/akiev.e_/">Эльдар</a>.</p>
 								</footer>
-
 						</div>
 					</div>
-
 			</div>
-
 		<!-- Scripts -->
 			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
 			<script src="{% static 'assets/js/browser.min.js'%}"></script>
 			<script src="{% static 'assets/js/breakpoints.min.js'%}"></script>
 			<script src="{% static 'assets/js/util.js'%}"></script>
 			<script src="{% static 'assets/js/main.js'%}"></script>
-
 	</body>
 </html>

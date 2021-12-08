@@ -1,26 +1,21 @@
-
 {% extends 'index.html' %}
 
 {% block content %}
-<section>
-    <header class="major">
-			<h2>{{stock.title}}</h2>
-		</header>
-    <article class="style{{stock.id}}">
-        <img src="{{stock.image.url}}" width="540" height="450">
-        <h3>{{stock.sub_title}}</h3>
-        <p>{{stock.description}}</p>
-        <p>{{post.created_date}}</p>
-        <ul class="actions">
-            {% if user.is_authenticated %}
-                <li><a class="button" href="{% url 'stock_update' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Редактировать</span></a></li>
-
-                <li><a class="button" href="{% url 'stock_delete' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Удалить</span></a></li>
-            {% endif %}
-        </ul>
-
-    </article>
-
-</section>
-
+    <section>
+        <header class="major">
+            <h2>{{stock.title}}</h2>
+        </header>
+        <article class="style{{stock.id}}">
+            <img src="{{stock.image.url}}" width="540" height="450">
+            <h3>{{stock.sub_title}}</h3>
+            <p>{{stock.description}}</p>
+            <p>{{post.created_date}}</p>
+            <ul class="actions">
+                {% if user.is_authenticated %}
+                    <li><a class="button" href="{% url 'stock_update' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Редактировать</span></a></li>
+                    <li><a class="button" href="{% url 'stock_delete' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Удалить</span></a></li>
+                {% endif %}
+            </ul>
+        </article>
+    </section>
 {% endblock %}

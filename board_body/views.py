@@ -21,7 +21,6 @@ class PostListView(generic.ListView):
     template_name = 'post_categories/man_boots.html'
     context_object_name = 'posts'
 
-
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Мужские кроссовки')
         return queryset
@@ -30,7 +29,6 @@ class PostListView(generic.ListView):
 class PostListView1(generic.ListView):
     template_name = 'post_categories/girls_boots.html'
     context_object_name = 'posts'
-
 
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Женские кроссовки')
@@ -41,7 +39,6 @@ class PostListView2(generic.ListView):
     template_name = 'post_categories/man_clothes.html'
     context_object_name = 'posts'
 
-
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Мужская одежда')
         return queryset
@@ -50,7 +47,6 @@ class PostListView2(generic.ListView):
 class PostListView3(generic.ListView):
     template_name = 'post_categories/girls_clothes.html'
     context_object_name = 'posts'
-
 
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Женская одежда')
@@ -61,7 +57,6 @@ class PostListView4(generic.ListView):
     template_name = 'post_categories/man_accessories.html'
     context_object_name = 'posts'
 
-
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Мужские аксессуары')
         return queryset
@@ -70,7 +65,6 @@ class PostListView4(generic.ListView):
 class PostListView5(generic.ListView):
     template_name = 'post_categories/girls_accessories.html'
     context_object_name = 'posts'
-
 
     def get_queryset(self):
         queryset = Post.objects.filter(categories__cate='Женские аксессуары')
@@ -81,7 +75,6 @@ class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'post_crud/post_detail.html'
     context_object_name = 'post'
-
 
     def get_success_url(self):
         post_id = self.kwargs['pk']
@@ -101,7 +94,6 @@ class PostUpdateView(generic.UpdateView):
     form_class = PostForm
     template_name = 'post_crud/update.html'
 
-
     def get_success_url(self):
         post_id = self.kwargs['pk']
         return reverse_lazy('post_detail', kwargs={
@@ -120,7 +112,6 @@ class StockDetailView(generic.DetailView):
     template_name = 'stock_crud/stock_detail.html'
     context_object_name = 'stock'
 
-
     def get_success_url(self):
         stock_id = self.kwargs['pk']
         return reverse_lazy('stock_detail', kwargs={
@@ -138,7 +129,6 @@ class StockUpdateView(generic.UpdateView):
     model = Stock
     form_class = StockForm
     template_name = 'stock_crud/update.html'
-
 
     def get_success_url(self):
         stock_id = self.kwargs['pk']

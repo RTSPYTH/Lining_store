@@ -2,21 +2,19 @@
 
 {% block content %}
 	<section id="banner">
-			<div class="content">
-				<header>
-					<h3>Создание акции</h3>
-							<form method="post" enctype="multipart/form-data">
-								{% csrf_token %}
-								{{form.as_p}}
-										<ul class="actions">
-											<li><input type="submit" value="Создать акцию"></li>
-											<li><a href="{% url 'stock_create' %}" class="button big">Сбросить</a></li>
-
-										</ul>
-
-							</form>
-				</header>
-			</div>
+		<div class="content">
+			<header>
+				<h3>Создание акции</h3>
+				<form method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{form.as_p}}
+					<ul class="actions">
+						<li><input type="submit" value="Создать акцию"></li>
+						<li><a href="{% url 'stock_create' %}" class="button big">Сбросить</a></li>
+					</ul>
+				</form>
+			</header>
+		</div>
 	</section>
 {% endblock %}
 

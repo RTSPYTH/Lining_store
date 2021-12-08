@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from board_body.models import Post, Stock
+from .models import Post, Stock
 
 
 class PostForm(ModelForm):

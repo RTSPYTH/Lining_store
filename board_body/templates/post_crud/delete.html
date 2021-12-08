@@ -5,7 +5,6 @@
     {% csrf_token %}
     {{form.as_p}}
     <h2>Вы уверены удалить товар "{{ object }}" ?</h2>
-
     <ul class="actions">
         <li><input type="submit" value="Подтвердить"></li>
     </ul>

@@ -1,30 +1,23 @@
 {% extends 'index.html' %}
 
 {% block content %}
-							<!-- Section -->
-
-
-							<!-- Section -->
-<section>
-	<header class="major">
-		<h2>Женские кроссовки</h2>
-	</header>
-	<div class="posts">
-		{% for post in posts %}
-
-		<article class="style{{posts.id}}">
-
-			<a href="{% url 'post_detail' pk=post.pk %}" class="image"><img src="{{post.image.url}}" alt="" width="444" height="444"></a>
-			<h3>{{post.name}}</h3>
-			<h3>{{post.price}} сом</h3>
-			<p>{{post.description}}</p>
-
-			<ul class="actions">
-				<li><a href="{% url 'post_detail' pk=post.pk %}" class="button">Посмотреть</a></li>
-			</ul>
-
-		</article>
-		{% endfor %}
-	</div>
-</section>
+	<section>
+		<header class="major">
+			<h2>Женские кроссовки</h2>
+		</header>
+		<div class="posts">
+			{% for post in posts %}
+				<article class="style{{posts.id}}">
+					<a href="{% url 'post_detail' pk=post.pk %}" class="image"><img src="{{post.image.url}}" alt="" width="444" height="444"></a>
+					<h3>{{post.name}}</h3>
+					<h3>{{post.price}} сом</h3>
+					<p>{{post.description}}</p>
+					<p>Наличие: {{post.availability}}</p>
+					<ul class="actions">
+						<li><a href="{% url 'post_detail' pk=post.pk %}" class="button">Посмотреть</a></li>
+					</ul>
+				</article>
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}
