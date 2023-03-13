@@ -7,17 +7,19 @@
     </header>
         <article class="style{{posts.id}}">
             <img src="{{post.image.url}}" alt="" class="image" width="340" height="340">
-            <h3>{{post.price}} сом</h3>
+            <h3>{{post.price}} Euro</h3>
             <p>{{post.description}}</p>
             {%for cate in post.categories.all%}
 			    <p>{{cate}}</p>
 			{%endfor%}
-            <p>Наличие: {{post.availability}}</p>
+            <p>der Vorrätigkeit: {{post.availability}}</p>
             <p>{{post.created_date}}</p>
             <ul class="actions">
                 {% if user.is_authenticated %}
-                    <li><a class="button" href="{% url 'post_update' pk=post.pk %}"><span class="glyphicon glyphicon-pencil">Редактировать</span></a></li>
-                    <li><a class="button" href="{% url 'post_delete' pk=post.pk %}"><span class="glyphicon glyphicon-pencil">Удалить</span></a></li>
+                    <li><a class="button" href="{% url 'post_update' pk=post.pk %}">
+                        <span class="glyphicon glyphicon-pencil">Redigieren</span></a></li>
+                    <li><a class="button" href="{% url 'post_delete' pk=post.pk %}">
+                        <span class="glyphicon glyphicon-pencil">Löschen</span></a></li>
                 {% endif %}
             </ul>
         </article>

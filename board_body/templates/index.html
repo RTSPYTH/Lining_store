@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>LINING KG</title>
+		<title>LINING</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
@@ -15,15 +15,19 @@
 						<div class="inner">
 							<!-- Header -->
 								<header id="header">
-									<h2><a href="{% url 'index' %}" class="logo"><strong>LINING KG</strong></a></h2>
+									<h2><a href="{% url 'index' %}" class="logo"><strong>LINING</strong></a></h2>
 									<ul class="actions">
 										{% if user.is_authenticated %}
-											<li><a href="{% url 'stock_create' %}" class="button big">Создать акцию</a></li>
-											<li><a href="{% url 'post_create' %}" class="button big">Добавить товар</a></li>
+											<li><a href="{% url 'stock_create' %}"
+												   class="button big">eine Freigabe erstellen</a></li>
+											<li><a href="{% url 'post_create' %}"
+												   class="button big">eine Produkt hinzufügen</a></li>
 										{% endif %}
 									</ul>
 									<ul class="icons">
-										<li><h2><a href="https://www.instagram.com/lining.admix.kg/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></h2></li>
+										<li><h2><a href="https://www.instagram.com/lining.admix.kg/"
+												   class="icon brands fa-instagram">
+													<span class="label">Instagram</span></a></h2></li>
 									</ul>
 								</header>
 							<!-- Banner -->
@@ -37,19 +41,23 @@
 												<p>{{stock.created_date}}</p>
 											</header>
 											<ul class="actions">
-												<li><a href="{% url 'stock_detail' pk=stock.pk %}" class="button big">Читать далее</a></li>
+												<li><a href="{% url 'stock_detail' pk=stock.pk %}"
+													   class="button big">weiter lesen</a></li>
 											</ul>
 										</div>
 										<span class="image object">
-											<a href="{% url 'stock_detail' pk=stock.pk %}"><img src="{{stock.image.url}}" alt="" ></a>
+											<a href="{% url 'stock_detail' pk=stock.pk %}">
+												<img src="{{stock.image.url}}" alt="" ></a>
 										</span>
 									{%else%}
 										<div class="content">
 											<header>
-												<h1>Пока предстоящих акции нет</h1>
-												<p>Скоро будут акции, ожидайте</p>
+												<h1>keine zukünftige Freigaben</h1>
+												<p>Förderungen werden bald, warten Sie mal </p>
 											</header>
-											<p>Li-Ning — китайская компания по производству спортивной одежды и спортивного оборудования, основанная бывшим гимнастом Ли Нином. Компания поддерживает ряд спортсменов и команд по всему миру.</p>
+											<p>Li-Ning is the Chinese leader in athletic apparel and footwear,
+												rooted in the vision of its founder and namesake,
+												the champion gymnast Mr. Li Ning.</p>
 										</div>
 										<span class="image">
 											<img src="{% static 'images/pic12.jpg' %}" alt="" width="488" height="412">
@@ -59,20 +67,23 @@
 							<!-- Section -->
 								<section>
 									<header class="major">
-										<h2>Товары</h2>
+										<h2>Produkte</h2>
 									</header>
 									<div class="posts">
 										{% for post in posts %}
 											<article class="style{{posts.id}}">
-												<a href="{% url 'post_detail' pk=post.pk %}" class="image"><img src="{{post.image.url}}" alt="" width="444" height="444"></a>
+												<a href="{% url 'post_detail' pk=post.pk %}"
+												   class="image"><img src="{{post.image.url}}"
+																	  alt="" width="444" height="444"></a>
 												<h3>{{post.name}}</h3>
 												{%for cate in post.categories.all%}
 													<p>{{cate}}</p>
 												{%endfor%}
-												<p>Наличие: {{post.availability}}</p>
-												<h3>{{post.price}} сом</h3>
+												<p>der Vorrätigkeit: {{post.availability}}</p>
+												<h3>{{post.price}} Euro</h3>
 												<ul class="actions">
-													<li><a href="{% url 'post_detail' pk=post.pk %}" class="button">Посмотреть</a></li>
+													<li><a href="{% url 'post_detail' pk=post.pk %}"
+														   class="button">sehen</a></li>
 												</ul>
 											</article>
 										{% endfor %}
@@ -85,56 +96,58 @@
 					<div id="sidebar">
 						<div class="inner">
 							{% if user.is_authenticated %}
-								Здраствуйте, {{ user.username }}!
+								Hallo, {{ user.username }}!
 							{% else %}
-								<p>Вы не зарегистрированы<br> <a href="{% url 'login' %}">Войти</a></p>
+								<p>Sie anmelden nicht<br> <a href="{% url 'login' %}">Anmelden</a></p>
 							{% endif %}
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
-										<h2>Меню</h2>
+										<h2>Menü</h2>
 									</header>
 									<ul>
-										<li><a href="{% url 'index' %}">Главная страница</a></li>
+										<li><a href="{% url 'index' %}">Hauptseite</a></li>
 										<li>
-											<span class="opener">Мужское</span>
+											<span class="opener">Männlich</span>
 											<ul>
-												<li><a href="{% url 'man_boots' %}">Кроссовки</a></li>
-												<li><a href="{% url 'man_clothes' %}">Одежда</a></li>
-												<li><a href="{% url 'man_accessories' %}">Аксессуары</a></li>
+												<li><a href="{% url 'man_boots' %}">Turnschuhe</a></li>
+												<li><a href="{% url 'man_clothes' %}">Kleidung</a></li>
+												<li><a href="{% url 'man_accessories' %}">Accessoires</a></li>
 											</ul>
 										</li>
 										<li>
-											<span class="opener">Женское</span>
+											<span class="opener">Feminin</span>
 											<ul>
-												<li><a href="{% url 'girls_boots' %}">Кроссовки</a></li>
-												<li><a href="{% url 'girls_clothes' %}">Одежда</a></li>
-												<li><a href="{% url 'girls_accessories' %}">Аксессуары</a></li>
+												<li><a href="{% url 'girls_boots' %}">Turnschuhe</a></li>
+												<li><a href="{% url 'girls_clothes' %}">Kleidung</a></li>
+												<li><a href="{% url 'girls_accessories' %}">Accessoires</a></li>
 											</ul>
 										</li>
-										<li><a href="{% url 'stocks' %}">Акции</a></li>
-										<li><a href="{% url 'company' %}">О компании</a></li>
+										<li><a href="{% url 'stocks' %}">Förderungen</a></li>
+										<li><a href="{% url 'company' %}">Über Li-Ning</a></li>
 									</ul>
 								</nav>
 							<!-- Section -->
 							<section>
 								<header class="major">
-									<h2>Контакты и Адреса</h2>
+									<h2>Kontakte und Adressen</h2>
 								</header>
-								<p>Доставка внутри города Бишкек бесплатно </p>
+								<p>Lieferung innerhalb der Stadt kostenlos </p>
 								<ul class="contact">
 									<li class="icon solid fa-envelope"><a href="https://mail.google.com/">lining_kg@gmail.com</a></li>
 									<li class="icon solid fa-envelope"><a href="https://mail.ru/">lining_kg@mail.ru</a></li>
 									<li class="icon solid fa-phone">0(999) 999-999</li>
 									<li class="icon solid fa-phone">0(558) 999-999</li>
 									<li class="icon solid fa-phone">0(770) 999-999</li>
-									<li class="icon solid fa-home">5 мкр. по К.Маркса<br>
-									ГУМ, 2 этаж<br> Дордой плаза, 2 этаж <br> Бишкек парк, 2 этаж </li>
+									<li class="icon solid fa-home">5 Nachbarschaft auf K.Marks<br>
+									GUM, 2 Stock<br> Dordoy Plaza, 2 Stock <br> Bishkek-Park, 2 Stock </li>
 								</ul>
 							</section>
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; Разработчики: <a href="https://www.instagram.com/erl_jk/">Эрбол</a>. <a href="https://www.instagram.com/akiev.e_/">Эльдар</a>.</p>
+									<p class="copyright">&copy; Entwicklern:
+										<a href="https://www.instagram.com/erl_jk/">Erbol</a>.
+										<a href="https://www.instagram.com/akiev.e_/">Eldar</a>.</p>
 								</footer>
 						</div>
 					</div>

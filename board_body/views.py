@@ -22,7 +22,7 @@ class PostListView(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Мужские кроссовки')
+        queryset = Post.objects.filter(categories__cate='Männer Turnschuhe')
         return queryset
 
 
@@ -31,7 +31,7 @@ class PostListView1(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Женские кроссовки')
+        queryset = Post.objects.filter(categories__cate='Weibliche Turnschuhe')
         return queryset
 
 
@@ -40,7 +40,7 @@ class PostListView2(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Мужская одежда')
+        queryset = Post.objects.filter(categories__cate='Männerkleidung')
         return queryset
 
 
@@ -49,7 +49,7 @@ class PostListView3(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Женская одежда')
+        queryset = Post.objects.filter(categories__cate='Damenbekleidung')
         return queryset
 
 
@@ -58,7 +58,7 @@ class PostListView4(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Мужские аксессуары')
+        queryset = Post.objects.filter(categories__cate='Accessoires für Herren')
         return queryset
 
 
@@ -67,7 +67,7 @@ class PostListView5(generic.ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        queryset = Post.objects.filter(categories__cate='Женские аксессуары')
+        queryset = Post.objects.filter(categories__cate='Accessoires für Damen')
         return queryset
 
 

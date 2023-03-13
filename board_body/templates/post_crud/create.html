@@ -4,13 +4,13 @@
 	<section id="banner">
 		<div class="content">
 			<header>
-				<h3>Добавление товара</h3>
+				<h3>Hinzufügen eines Produkts</h3>
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					{{form.as_p}}
 					<ul class="actions">
-						<li><input type="submit" value="Добавить товар"></li>
-						<li><a href="{% url 'post_create' %}" class="button big">Сбросить</a></li>
+						<li><input type="submit" value="Produkt hinzufügen"></li>
+						<li><a href="{% url 'post_create' %}" class="button big">Abwerfen</a></li>
 					</ul>
 				</form>
 			</header>

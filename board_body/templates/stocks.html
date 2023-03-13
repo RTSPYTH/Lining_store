@@ -3,17 +3,18 @@
 {% block content %}
 	<section>
 		<header class="major">
-			<h2>Акции</h2>
+			<h2>Förderungen</h2>
 		</header>
 		<div class="posts">
 			{% for stock in stocks %}
 				<article class="style{{posts.id}}">
-					<a href="{% url 'stock_detail' pk=stock.pk %}" class="image"><img src="{{stock.image.url}}" alt="" height="350"></a>
+					<a href="{% url 'stock_detail' pk=stock.pk %}" class="image"><img src="{{stock.image.url}}"
+																					  alt="" height="350"></a>
 					<h3>{{stock.title}}</h3>
 					<h3>{{stock.sub_title}}</h3>
 					<p>{{stock.created_date}}</p>
 					<ul class="actions">
-						<li><a href="{% url 'stock_detail' pk=stock.pk %}" class="button">Читать далее</a></li>
+						<li><a href="{% url 'stock_detail' pk=stock.pk %}" class="button">weiter lesen</a></li>
 					</ul>
 				</article>
 			{% endfor %}

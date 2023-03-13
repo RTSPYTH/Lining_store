@@ -4,13 +4,13 @@
 	<section id="banner">
 		<div class="content">
 			<header>
-				<h3>Создание акции</h3>
+				<h3>Erstellung eine Freigabe</h3>
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					{{form.as_p}}
 					<ul class="actions">
-						<li><input type="submit" value="Создать акцию"></li>
-						<li><a href="{% url 'stock_create' %}" class="button big">Сбросить</a></li>
+						<li><input type="submit" value="Freigabe erstellen"></li>
+						<li><a href="{% url 'stock_create' %}" class="button big">Abwerfen</a></li>
 					</ul>
 				</form>
 			</header>

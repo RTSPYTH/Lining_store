@@ -12,8 +12,10 @@
             <p>{{post.created_date}}</p>
             <ul class="actions">
                 {% if user.is_authenticated %}
-                    <li><a class="button" href="{% url 'stock_update' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Редактировать</span></a></li>
-                    <li><a class="button" href="{% url 'stock_delete' pk=stock.pk %}"><span class="glyphicon glyphicon-pencil">Удалить</span></a></li>
+                    <li><a class="button" href="{% url 'stock_update' pk=stock.pk %}">
+                        <span class="glyphicon glyphicon-pencil">Redigieren</span></a></li>
+                    <li><a class="button" href="{% url 'stock_delete' pk=stock.pk %}">
+                        <span class="glyphicon glyphicon-pencil">Löschen</span></a></li>
                 {% endif %}
             </ul>
         </article>

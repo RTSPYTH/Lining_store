@@ -4,13 +4,13 @@
 	<section id="banner">
 		<div class="content">
 			<header>
-				<h3>Редактирование товара</h3>
+				<h3>Produkt redigieren</h3>
 				<form method="post" enctype="multipart/form-data">
 					{% csrf_token %}
 					{{form.as_p}}
 					<ul class="actions">
-						<li><input type="submit" value="Подтвердить"></li>
-						<li><a href="{% url 'post_update' pk=post.pk %}" class="button big">Сбросить</a></li>
+						<li><input type="submit" value="Bestätigen"></li>
+						<li><a href="{% url 'post_update' pk=post.pk %}" class="button big">Abwerfen</a></li>
 					</ul>
 				</form>
 			</header>

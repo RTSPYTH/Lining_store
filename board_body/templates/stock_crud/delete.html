@@ -4,9 +4,9 @@
 <form method="post">
     {% csrf_token %}
     {{form.as_p}}
-    <h2>Вы уверены удалить акцию "{{ object }}" ?</h2>
+    <h2>Möchten Sie die Freigabe wirklich löschen?"{{ object }}" ?</h2>
     <ul class="actions">
-        <li><input type="submit" value="Подтвердить"></li>
+        <li><input type="submit" value="Bestätigen"></li>
     </ul>
 </form>
 {% endblock %}
